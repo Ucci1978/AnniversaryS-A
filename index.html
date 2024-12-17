@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Il Destino sei tu</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .cover {
+            max-width: 200px; /* Dimensioni dell'immagine */
+            margin-right: 20px; /* Spazio tra immagine e testo */
+        }
+
+        .scrolling-text {
+            width: 300px;
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+            border: 2px solid #000; /* Bordo visibile */
+            background-color: white;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+
+        .text-content {
+            position: absolute;
+            width: 100%;
+            line-height: 1.5; /* Spaziatura tra le righe */
+            transform: translateY(56%); /* Inizio sopra il contenitore */
+        }
+
+        @keyframes scroll-up {
+            0% {
+                transform: translateY(57%); /* Parte da una posizione più alta */
+            }
+            100% {
+                transform: translateY(-100%); /* Scorre verso l'alto */
+            }
+        }
+
+        audio {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="Copertina.jpg" alt="Copertina" class="cover">
+        <div class="scrolling-text">
+            <p class="text-content">
+                Era l’estate del sedici, sotto un cielo denso di sogni, tra dubbi e tempeste, eravamo soli, ma insieme più forti. Hanno parlato 				in tanti, ci hanno detto "non ce la faranno", ma tu ed io, mano nella mano, abbiamo riscritto ogni piano. Con Leonardo ed 					Ettore, stelle nel nostro cammino, la famiglia che abbiamo creato, il nostro vero destino. Sara, tu sei il sereno dopo ogni 					tempesta, l’amore che resta, che mi salva e mi desta. Il destino non è un caso, ma il tuo nome scritto nel mio, in ogni giorno, 				in ogni addio. E il 24 dicembre, come una promessa, la festa della famiglia, il nostro "per sempre" che resta. Serendipità, il 					tuo sorriso che mi ha trovato, quando tutto sembrava lontano, eri già il mio faro amato. Abbiamo costruito un castello con i 					mattoni dell’impegno, un amore che lotta, che vince ogni segno. Leo ed Ettore, il cuore che batte due volte, un futuro che 					insieme dipingiamo nelle notti più colte. Sara, tu sei il sereno dopo ogni tempesta, l’amore che resta, che mi salva e mi 					desta. Il destino non è un caso, ma il tuo nome scritto nel mio, in ogni giorno, in ogni addio. E il 24 dicembre, come una 					promessa, la festa della famiglia, il nostro "per sempre" che resta. E anche se la vita non è una favola, lo sappiamo, ogni 					giorno insieme il "felici e contenti" lo creiamo. Ci siamo scelti contro ogni bufera, Sara, sei la mia luce, la mia vita 					sincera. Sara, amore mio, il destino sei tu, il sereno che cerco nel cielo più blu. Con Leonardo ed Ettore, la nostra sinfonia, 				una vita insieme, questa è la mia poesia..<br>
+                ...
+            </p>
+        </div>
+    </div>
+    <audio id="audio" controls>
+        <source src="2 - Il Destino Sei Tu.mp3" type="audio/mpeg">
+        Il tuo browser non supporta l'elemento audio.
+    </audio>
+    <script>
+        // Riferimenti agli elementi audio e testo
+        const audio = document.getElementById('audio');
+        const textContent = document.querySelector('.text-content');
+
+        // Sincronizza la durata dell'animazione con la durata dell'audio
+        audio.addEventListener('loadedmetadata', () => {
+            const duration = audio.duration; // Ottieni la durata dell'audio
+            const animationDuration = duration * 0.30; // Riduci la durata al 75% per velocizzare
+            console.log(`Durata audio: ${duration}s, Durata animazione: ${animationDuration}s`); // Debug
+
+            // Configura l'animazione dinamicamente
+            textContent.style.animation = `scroll-up ${animationDuration}s linear`;
+            textContent.style.animationPlayState = 'paused'; // Imposta l'animazione in pausa iniziale
+        });
+
+        // Avvia l'animazione solo quando l'audio parte
+        audio.addEventListener('play', () => {
+            textContent.style.animationPlayState = 'running'; // Attiva l'animazione
+        });
+
+        // Metti in pausa l'animazione quando l'audio è in pausa
+        audio.addEventListener('pause', () => {
+            textContent.style.animationPlayState = 'paused'; // Metti in pausa l'animazione
+        });
+    </script>
+</body>
+</html>
