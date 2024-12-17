@@ -5,8 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Il Destino sei tu</title>
     <style>
+        @font-face {
+            font-family: Monotype Corsiva, sans-serif;
+            display: flex;
+            font-size: 1.5em; /* Dimensione del testo */
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+
         body {
-            font-family: Arial, sans-serif;
+            font-family: Monotype Corsiva, sans-serif;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -14,6 +26,21 @@
             height: 100vh;
             margin: 0;
             background-color: #f0f0f0;
+            overflow: hidden; /* Per evitare overflow */
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-family: 'Harrington', sans-serif; /* Utilizzo del font locale Abandon */
+            font-size: 5em; /* Dimensione del testo */
+            color: red; /* Colore del testo */
+            text-shadow: 2px 2px 0 yellow, -2px -2px 0 yellow, 2px -2px 0 yellow, -2px 2px 0 yellow; /* Bordo giallo */
+            margin: 0;
+            padding: 10px 0;
         }
 
         .container {
@@ -23,31 +50,31 @@
         }
 
         .cover {
-            max-width: 200px; /* Dimensioni dell'immagine */
+            max-width: 400px; /* Dimensione regolata della copertina */
             margin-right: 20px; /* Spazio tra immagine e testo */
         }
 
         .scrolling-text {
-            width: 300px;
+            width: 450px; /* Aumentata la larghezza della casella di testo */
             height: 200px;
             overflow: hidden;
             position: relative;
-            border: 2px solid #000; /* Bordo visibile */
             background-color: white;
-            padding: 10px;
+            padding: 20px; /* Aggiunto più padding per evitare che il testo tocchi i bordi */
             box-sizing: border-box;
         }
 
         .text-content {
             position: absolute;
-            width: 100%;
+            width: calc(100% - 40px); /* Aggiunto padding interno */
             line-height: 1.5; /* Spaziatura tra le righe */
             transform: translateY(56%); /* Inizio sopra il contenitore */
+            text-align: center; /* Allinea il testo orizzontalmente al centro */
         }
 
         @keyframes scroll-up {
             0% {
-                transform: translateY(57%); /* Parte da una posizione più alta */
+                transform: translateY(35%); /* Parte da una posizione più alta */
             }
             100% {
                 transform: translateY(-100%); /* Scorre verso l'alto */
@@ -57,14 +84,67 @@
         audio {
             margin-top: 20px;
         }
+
+        .dedication {
+            position: absolute;
+            bottom: 10px;
+            text-align: center;
+            font-style: italic;
+            font-size: 1em;
+            color: #333;
+        }
+
+        .heart {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background-color: red;
+            transform: rotate(-45deg);
+            left: 50%;
+            animation: fall linear infinite;
+        }
+
+        .heart:before,
+        .heart:after {
+            content: "";
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background-color: red;
+            border-radius: 50%;
+        }
+
+        .heart:before {
+            top: -15px;
+            left: 0;
+        }
+
+        .heart:after {
+            left: 15px;
+            top: 0;
+        }
+
+        @keyframes fall {
+            0% {
+                top: -30px;
+                opacity: 1;
+            }
+            100% {
+                top: 100vh;
+                opacity: 0;
+            }
+        }
     </style>
 </head>
 <body>
+    <div class="header">
+        <h1>Il Destino sei tu</h1>
+    </div>
     <div class="container">
         <img src="Copertina.jpg" alt="Copertina" class="cover">
         <div class="scrolling-text">
             <p class="text-content">
-                Era l’estate del sedici, sotto un cielo denso di sogni, tra dubbi e tempeste, eravamo soli, ma insieme più forti. Hanno parlato 				in tanti, ci hanno detto "non ce la faranno", ma tu ed io, mano nella mano, abbiamo riscritto ogni piano. Con Leonardo ed 					Ettore, stelle nel nostro cammino, la famiglia che abbiamo creato, il nostro vero destino. Sara, tu sei il sereno dopo ogni 					tempesta, l’amore che resta, che mi salva e mi desta. Il destino non è un caso, ma il tuo nome scritto nel mio, in ogni giorno, 				in ogni addio. E il 24 dicembre, come una promessa, la festa della famiglia, il nostro "per sempre" che resta. Serendipità, il 					tuo sorriso che mi ha trovato, quando tutto sembrava lontano, eri già il mio faro amato. Abbiamo costruito un castello con i 					mattoni dell’impegno, un amore che lotta, che vince ogni segno. Leo ed Ettore, il cuore che batte due volte, un futuro che 					insieme dipingiamo nelle notti più colte. Sara, tu sei il sereno dopo ogni tempesta, l’amore che resta, che mi salva e mi 					desta. Il destino non è un caso, ma il tuo nome scritto nel mio, in ogni giorno, in ogni addio. E il 24 dicembre, come una 					promessa, la festa della famiglia, il nostro "per sempre" che resta. E anche se la vita non è una favola, lo sappiamo, ogni 					giorno insieme il "felici e contenti" lo creiamo. Ci siamo scelti contro ogni bufera, Sara, sei la mia luce, la mia vita 					sincera. Sara, amore mio, il destino sei tu, il sereno che cerco nel cielo più blu. Con Leonardo ed Ettore, la nostra sinfonia, 				una vita insieme, questa è la mia poesia..<br>
+                Era l’estate del sedici, sotto un cielo denso di sogni, tra dubbi e tempeste, eravamo soli, ma insieme più forti. Hanno parlato in tanti, ci hanno detto "non ce la faranno", ma tu ed io, mano nella mano, abbiamo riscritto ogni piano. Con Leonardo ed Ettore, stelle nel nostro cammino, la famiglia che abbiamo creato, il nostro vero destino. Sara, tu sei il sereno dopo ogni tempesta, l’amore che resta, che mi salva e mi desta. Il destino non è un caso, ma il tuo nome scritto nel mio, in ogni giorno, in ogni addio. E il 24 dicembre, come una promessa, la festa della famiglia, il nostro "per sempre" che resta. Serendipità, il tuo sorriso che mi ha trovato, quando tutto sembrava lontano, eri già il mio faro amato. Abbiamo costruito un castello con i mattoni dell’impegno, un amore che lotta, che vince ogni segno. Leo ed Ettore, il cuore che batte due volte, un futuro che insieme dipingiamo nelle notti più colte. Sara, tu sei il sereno dopo ogni tempesta, l’amore che resta, che mi salva e mi desta. Il destino non è un caso, ma il tuo nome scritto nel mio, in ogni giorno, in ogni addio. E il 24 dicembre, come una promessa, la festa della famiglia, il nostro "per sempre" che resta. E anche se la vita non è una favola, lo sappiamo, ogni giorno insieme il "felici e contenti" lo creiamo. Ci siamo scelti contro ogni bufera, Sara, sei la mia luce, la mia vita sincera. Sara, amore mio, il destino sei tu, il sereno che cerco nel cielo più blu. Con Leonardo ed Ettore, la nostra sinfonia, una vita insieme, questa è la mia poesia..<br>
                 ...
             </p>
         </div>
@@ -73,6 +153,12 @@
         <source src="2 - Il Destino Sei Tu.mp3" type="audio/mpeg">
         Il tuo browser non supporta l'elemento audio.
     </audio>
+    <div class="dedication">
+        (2016 - 2017 - 2018 - 2019 - 2020 - 2021 - 2022 - 2023 - 2024... to be continued)
+	Sara sei la mia vita, la nostra favola continuerà ancora a lungo!
+	Ti amo
+	tuo per sempre,Ucci!
+    </div>
     <script>
         // Riferimenti agli elementi audio e testo
         const audio = document.getElementById('audio');
@@ -81,7 +167,7 @@
         // Sincronizza la durata dell'animazione con la durata dell'audio
         audio.addEventListener('loadedmetadata', () => {
             const duration = audio.duration; // Ottieni la durata dell'audio
-            const animationDuration = duration * 0.33; // Riduci la durata al 75% per velocizzare
+            const animationDuration = duration * 0.65; // Riduci la durata al 75% per velocizzare
             console.log(`Durata audio: ${duration}s, Durata animazione: ${animationDuration}s`); // Debug
 
             // Configura l'animazione dinamicamente
@@ -98,6 +184,23 @@
         audio.addEventListener('pause', () => {
             textContent.style.animationPlayState = 'paused'; // Metti in pausa l'animazione
         });
+
+        // Funzione per creare cuori pioventi
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.className = 'heart';
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDuration = Math.random() * 2 + 3 + 's';
+            document.body.appendChild(heart);
+
+            // Rimuovi il cuore dopo l'animazione
+            setTimeout(() => {
+                heart.remove();
+            }, 5000);
+        }
+
+        // Creazione periodica dei cuori
+        setInterval(createHeart, 300);
     </script>
 </body>
 </html>
