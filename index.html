@@ -81,7 +81,7 @@
         // Sincronizza la durata dell'animazione con la durata dell'audio
         audio.addEventListener('loadedmetadata', () => {
             const duration = audio.duration; // Ottieni la durata dell'audio
-            const animationDuration = duration * 0.30; // Riduci la durata al 75% per velocizzare
+            const animationDuration = duration * 0.33; // Riduci la durata al 75% per velocizzare
             console.log(`Durata audio: ${duration}s, Durata animazione: ${animationDuration}s`); // Debug
 
             // Configura l'animazione dinamicamente
